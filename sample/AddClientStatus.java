@@ -13,7 +13,7 @@ public class AddClientStatus extends ConsoleStatus {
 		"住所を入力してください。>",
 		"電話番号を入力してください。>",
 	};
-	private String[] data = new String[ 3 ];
+	private String[] data = new String[ 6 ];
 
 	/**
 	 * コンストラクタ AddClientStatus
@@ -43,12 +43,12 @@ public class AddClientStatus extends ConsoleStatus {
 		}
 
 		try {
-            int new_id = cl.size();// 現在のPersonListのレコード数を
-                                   // 新しいレコードのIDとする
-            String record = new_id + "," + data[0] + "," + data[1] + ","
-                            + data[2] + "," + "f";
-			// 新しいレコードを追加
-			cl.add( record );
+			int new_id = cl.size();
+            String record = new_id + "," + data[0] + "," + data[1] + "," + data[2] + "," + "f";
+
+            //新しいレコードを追加
+			cl.add(record); // 現在のClientListのレコード数を
+	                        // 新しいレコードのIDとする
 			System.out.println( "ID:" + new_id + "で登録されました。" );
 		} catch( NumberFormatException e ) {
 			System.out.println( "数値に変換できないデータが入力されています。" );

@@ -11,13 +11,13 @@ public class UpdateClientStatus extends ConsoleStatus {
 	private ClientList cl;
 
 	private String[] messages = {
-		"1.氏名\t\t\t2.住所\n",
+		"1.会社名\t\t\t2.住所\n",
 		"3.電話番号\n"
 	};
 	private String data;
 
 	/**
-	 * コンストラクタ UpdateClientStatus
+	 * コンストラクタ UpdateclientStatus
 	 * @param String firstMess
 	 * @param String promptMess
 	 * @param boolean IsEndStatus
@@ -59,9 +59,9 @@ public class UpdateClientStatus extends ConsoleStatus {
 			return;
 		}
 
-		// 顧客の情報の出力
+		// 従業員の情報の出力
 		System.out.println( c.toString() );
-		
+
 		System.out.println( "\n更新したい項目を入力してください。" );
 		// messagesの各文字列を順に表示する
 		for( int idx = 0; idx < messages.length; idx++ )
@@ -78,16 +78,18 @@ public class UpdateClientStatus extends ConsoleStatus {
 			System.out.print( "\n更新後の値を入力してください。\n>" );
 			data = inputMessage();
 
-            switch( no ) {
-                case 1:
-                    c.setName( data );   break;
-                case 2:
-                    c.setAddress( data );   break;
-                case 3:
-                    c.setTel( data );   break;
-                default:
-                    break;
-            }
+			if( no >= 1 && no <= 3 ) {
+				switch( no ) {
+					case 1:
+						c.setName( data );   break;
+					case 2:
+						c.setAddress( data );   break;
+					case 3:
+						c.setTel( data );   break;
+					default:
+						break;
+				}
+			}
 		} catch( NumberFormatException e ) {
 			System.out.println( "数値に変換できないデータが入力されています。" );
 			System.out.println( "再入力してください。" );
